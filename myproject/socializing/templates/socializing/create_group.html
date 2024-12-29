@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body {
+            background-color:rgb(0,255,0);
+            background-attachment:fixed;
+            background-repeat:no-repeat;
+        }
+        h1 {
+            display:block;
+            text-align:center;
+            width:1000px;
+            font-size:60px;
+            color:rgb(0,0,0);
+            text-decoration:underline;
+        }
+        
+        form {
+            display : block;
+            width : 600px;
+            text-align : right;
+        }
+        input {
+            font-size : 30px;
+            background-color : black;
+            color : red;
+        }
+        button {
+            color:red;
+            background-color:black;
+            font-size:30px;
+        }
+        a {
+            color:rgb(0,0,255);
+            background-color:rgb(0,0,0);
+            font-size:30px;
+            text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create Group</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Group Name" required><br>
+        <button type="submit">Create</button>
+    </form>
+    <a href="{% url 'group_list' %}">Back</a>
+</body>
+</html>

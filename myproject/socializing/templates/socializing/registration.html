@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <title>Registration</title>
+    <style type="text/css">
+        body {
+            background-color : rgb(0,255,0);
+        }
+        h1 {
+            display : block;
+            width : 1050px;
+            font-size : 80px;
+            text-align : center;
+            color : rgb(0,0,255);
+        }
+        form {
+            display : block;
+            width : 600px;
+            text-align : right;
+        }
+        input {
+            font-size : 30px;
+            background-color : white;
+            color : red;
+        }
+    </style>
+</head>
+<body>
+    <h1>WELCOME-TO-FUTURE-GEN</h1>
+    <form method='POST'>
+        {% csrf_token %}
+        <input type = "text"name="first_name"placeholder="First_name"required><br>
+        <input type = "text"name="last_name"placeholder="Last_name"required><br>
+        <input type = "text"name="username"placeholder="username"required><br>
+        <input type = "text"name="email"placeholder="Email"required><br>
+        <input type = "text"name="password1"placeholder="Password"required><br>
+        <input type = "text"name="password2"placeholder="Confirm_Password"required><br>
+        <input type = "submit"value="submit"placeholder="SUBMIT"><br>
+    </form>
+
+</body>
+</html>

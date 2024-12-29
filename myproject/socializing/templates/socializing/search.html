@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body {
+            background-color:rgb(0,255,0);
+            background-repeat:no-repeat;
+            background-attachment:fixed:
+        }
+        
+        a {
+            text-align:center;
+            width:1000px;
+            font-size:50px;
+            color:rgb(255,0,0);
+            background-color:white;
+            text-decoration:none;
+        }
+        ul {
+            list-style-type:none;
+        }
+        li {
+            color:rgb(0,0,255);
+            text-align:center;
+            width:1000px;
+            font-size:50px;
+        }
+        h1 {
+            width:1000px;
+            text-align:center;
+            color:black;
+            font-size:60px;
+            text-decoration:underline;
+        }
+        input {
+            width:800px;
+            text-align:center;
+            background-color:white;
+            color:red;
+            font-size:50px;
+        }
+        button {
+            background-color:white;
+            color:blue;
+            font-size:50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Search Friends</h1>
+    <form method="get" action="">
+        <input type="text" name="q"value="{{ query }}"placeholder="search by username">
+        <button type="submit">Search</button>
+    </form>
+    <ul>
+        {% for user in results %}
+        <li>
+            {{ user.username }}
+            <a href="{% url 'send_friend_request' user.id %}">Send-Friend-Request</a>    
+        </li>
+        {% empty %}
+        <li>No users found.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'friends_page' %}">Back</a>
+</body>
+</html>

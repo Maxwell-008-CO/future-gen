@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body {
+            background-color:rgb(0,255,0);
+            background-repeat:no-repeat;
+            background-attachment:fixed:
+        }
+        h1 {
+            text-align:center;
+            width:1000px;
+            color:black;
+            text-decoration:underline;
+            font-size:70px;
+        }
+        a {
+            color:rgb(0,0,255);
+            background-color:rgb(0,0,0);
+            font-size:40px;
+            text-decoration:none;
+            text-align:center;
+        }
+        ul {
+            list-style-type:none;
+        }
+        li {
+            width:1000px;
+            text-align:center;
+            background-color:black;
+            margin:10px;
+        }
+        strong {
+            font-size:30px;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your videos</h1>
+    <a href="{% url 'post_video' %}">Post Your Video</a>    
+    <ul>
+            {% for video in videos %}
+                <li>
+                    <strong>{{ video.title }}</strong>
+                    <p>{{ video.description }}</p>
+                    <video controls width="300">
+                        <source src="{{ video.video_file.url }}"type="video/mp4">
+                    </video>
+                    <a href="{% url 'video_delete' video.pk %}">Delete</a>
+                </li>
+            {% endfor %}
+    </ul>
+</body>
+</html>

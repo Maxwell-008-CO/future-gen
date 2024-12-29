@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body {
+            background-color:rgb(0,255,0);
+            background-attachment:fixed;
+            background-repeat:no-repeat;
+        }
+        h1 {
+            text-decoration:underline;
+            display:block;
+            text-align:center;
+            width:1000px;
+            font-size:50px;
+            color:rgb(0,0,0);
+        }
+        ul {
+            list-style-type:none;
+            text-decoration:none;
+        }
+        li {
+            text-align:center;
+            width:400px;
+            font-size:50px;
+            text-decoration:none;
+        }
+        a {
+            color:blue;
+            background-color:black;
+            text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chat List<h1>
+        <ul>
+            {% for user in users %}
+            <li>
+                <a href="{% url 'chat_room' user.id %}">{{ user.username }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+</body>
+</html>

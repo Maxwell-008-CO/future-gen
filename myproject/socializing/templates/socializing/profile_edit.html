@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body {           
+            background-color : rgb(0,255,0);
+            background-repeat:no-repeat;
+            background-attachment:fixed;
+        }
+        form {
+            font-size:30px;
+            width:1000px;
+            text-align:center;
+            color:rgb(0,0,0);
+        }
+        input {
+            font-size:40px;
+            color:rgb(255,0,0);
+            background-color:rgb(0,0,0);
+        }
+        button {
+            font-size:30px;
+            color:rgb(0,0,255);
+            background-color:rgb(0,0,0);
+        }
+    </style>
+</head>
+<body>
+    <form method="POST"enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ user_form.as_p}}
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>

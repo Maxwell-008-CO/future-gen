@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body {
+            background-color:rgb(0,255,0);
+            background-repeat:no-repeat;
+            background-attachment:fixed:
+        }
+        h1 {
+            text-align:center;
+            width:1000px;
+            color:black;
+            text-decoration:underline;
+            font-size:70px;
+        }
+        a {
+            color:rgb(255,0,0);
+            background-color:rgb(0,0,0);
+            font-size:40px;
+            text-decoration:none;
+            width:600px;
+            text-align:center;
+        }
+        ul {
+            list-style-type:none;
+            text-decoration:none;
+        }
+        li {
+            text-align:center;
+            width:1000px;
+            font-size:50px;
+            text-decoration:none;
+            background-color:white;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Posts</h1>
+    <a href="{% url 'post_create' %}">Create Post</a>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <h2>{{ post.title }}</h2>
+                <p>"{{ post.content }}"</p>
+                <div>
+                    <small>By {{ post.author }} on {{ post.created_at}}</small>
+                </div>
+                {% if post.author == request.user %}
+                    <a href="{% url 'post_edit' post.pk %}">Edit</a>
+                    <a href="{% url 'post_delete' post.pk %}">Delete</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

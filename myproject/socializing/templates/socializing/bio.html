@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+            body {
+                background-color:rgb(0,0,255);
+                background-repeat:no-repeat;
+                background-attachment:fixed;
+            }
+            h1 {
+                display:block;
+                text-align:center;
+                width:1000px;
+                font-size:50px;
+                color:rgb(150,0,0);
+            }
+            p {
+                font-size:60px;
+                color:rgb(0,0,0);
+                text-align:justify;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>{{ user.username }}'s bio page<h1>
+        <p>
+            {% if profile.bio %}
+                {{ profile.bio }}
+            {% else %}
+            {{ user.username }} has no bio yet
+            {% endif %}
+    </body>
+</html>

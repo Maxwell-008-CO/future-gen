@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body {
+            background-color:rgb(0,0,255);
+            background-image:url('/static/socializing/images/kenyan-anime.jpg');
+            background-attachment:fixed;
+            background-repeat:no-repeat;
+            background-size:contain;
+            background-position:right;
+            margin:2px;
+        }
+        table {
+            display:block;
+            font-size:28px;
+            text-align:justify;
+            color:black;
+        }
+        th {
+            background-color:white;
+        }
+        td {
+            background-color:white;
+        }
+        a {
+            display:block;
+            text-align:center;
+            text-decoration:none;
+            color:black;
+            width:250px;
+        }
+        #y {
+            a {
+            display:block;
+            text-align:center;
+            text-decoration:none;
+            background-color:black;
+            width:510px;
+            font-size:30px;
+            color:white;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% if profile.profile_picture %}
+        <img src="{{ profile.profile_picture.url }}"
+        alt="profile picture"width="400"height="400">
+    {% else %}
+        <img src="{{ MEDIA_URL }} /static/socializing/images/profile_pictures/contact-pic.webp"
+        alt="default image"width="400"height="400">
+    {% endif %}
+    <table>
+        <tr>
+            <th>UserName:</th>
+            <td>
+                {{ request.user.username }}
+            </td>
+        </tr>
+        <tr>
+            <th>FirstName:</th>
+            <td>
+                {{ request.user.first_name }}
+            </td>
+        </tr>
+        <tr>
+            <th>LastName:</th>
+            <td>
+                {{ request.user.last_name }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="{% url 'bio_view' %}">Bio</a>
+            </td>
+            <td>
+                <a href="{% url 'post_page' %}">Posts</a>
+            </td>
+        </tr>
+    </table>
+    <div id="y">
+        <a href="{% url 'profile_edit' %}">EDIT_PROFILE</a>
+    </div>
+</body>
+</html>
